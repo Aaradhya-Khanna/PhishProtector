@@ -11,7 +11,7 @@ const Frontpage = () => {
   // Function to call phishing detection API
   const detectPhishing = async () => {
     try {
-      const response = await axios.post('http://172.20.185.134:5000/check-emails',{
+      const response = await axios.post('https://phiishyemaildetection.onrender.com',{
         email: email,
         password: password
       });
