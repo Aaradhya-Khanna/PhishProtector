@@ -26,14 +26,15 @@ const styles = StyleSheet.create({
   },
   container: {
     padding: 10,
+    color:'grey'
   },
   subject: {
-    fontSize: 14,
+    fontSize: 30,
     fontWeight: 'bold',
     color: 'black',
   },
   result: {
-    fontSize: 12,
+    fontSize: 15,
     color: 'red',
   },
 });
