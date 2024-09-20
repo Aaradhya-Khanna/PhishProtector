@@ -3,7 +3,7 @@ import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import axios from 'axios';
 import Printresult from './Printresult';
 
-const Frontpage = () => {
+const Frontpage = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [result, setResult] = useState('');
@@ -16,6 +16,7 @@ const Frontpage = () => {
         password: password
       });
       setResult(response.data.emails);
+      navigation.navigate("Result",{result});
     } catch (error) {
       console.error('Error detecting phishing', error);
     }
