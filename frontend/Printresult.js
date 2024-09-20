@@ -1,31 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { View, ScrollView, Text, StyleSheet } from 'react-native';
 
-const PrintResult = ({ result }) => {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    if (result) {
-      if (typeof result === 'string') {
-        try {
-          setData(JSON.parse(result)); 
-        } catch (error) {
-          console.error('Failed to parse result:', error);
-        }
-      } else {
-        setData(result); 
-      }
-    }
-  }, [result]);
+const PrintResult = ({ route }) => {
+  const { result } = route.params; // Access the result passed from Frontpage
 
   return (
     <ScrollView style={styles.scroll}>
-      {data.map((item, index) => (
-        <View key={index} style={styles.container}>
-          <Text style={styles.subject}>Subject: {item.subject}</Text>
-          <Text style={styles.result}>Result: {item.result}</Text>
-        </View>
-      ))}
+      {result && result.length > 0 ? (
+        result.map((item, index) => (
+          <View key={index} style={styles.container}>
+            <Text style={styles.subject}>Subject: {item.subject}</Text>
+            <Text style={styles.result}>Result: {item.result}</Text>
+          </View>
+        ))
+      ) : (
+        <Text>No results found.</Text>
+      )}
     </ScrollView>
   );
 };

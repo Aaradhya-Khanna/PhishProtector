@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import ResultScreen from './frontend/Printresult';
+import PrintResult from './frontend/Printresult';
 import FrontScreen from './frontend/Frontpage'
 const Stack = createStackNavigator();
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={FrontScreen} />
-        <Stack.Screen name="Result" component={ResultScreen} />
+        <Stack.Screen name="PrintResult" component={PrintResult} />
       </Stack.Navigator>
     </NavigationContainer>
   );
